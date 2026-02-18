@@ -1,73 +1,53 @@
-# React + TypeScript + Vite
+# ユーザー管理アプリ（React × TypeScript）
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📖 概要
+React + TypeScript を用いて作成したユーザー管理アプリです。
 
-Currently, two official plugins are available:
+外部API（JSONPlaceholder）と通信し、ユーザー一覧取得・詳細表示を実装しています。
+また、Contextを用いたログイン状態管理と認証ガードを実装しています。
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+本アプリはUdemy講座をベースに学習を進め、
+その後設計理解を深めるために機能追加および構造整理を行いました。
 
-## React Compiler
+## 🎯 制作目的
+- カスタムフックによる責務分離の理解
+- Contextを用いたグローバル状態管理
+- 認証ガード実装の理解
+- 非同期処理（Axios）の実装
+- TypeScriptによる型安全な設計
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠 使用技術
+- React
+- TypeScript
+- Vite
+- React Router
+- Axios
+- Chakra UI
+- Git / GitHub
 
-## Expanding the ESLint configuration
+## 🚀 主な機能
+- ユーザー一覧取得（外部API通信）
+- ログイン機能
+- ログイン状態のグローバル管理（Context）
+- AuthGuardによる保護ルーティング
+- 管理者権限による機能分岐
+- ユーザー詳細モーダル表示
+- Toast通知（成功 / エラー）
+- 404ページ対応
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 💡 設計で意識したこと
+- Atomic Designを意識したコンポーネント分割
+- カスタムフックによるロジックの責務分離
+- 認証ガードコンポーネントによるルート制御
+- 非同期処理時のローディング管理とエラーハンドリング
+- memo / useCallbackによるパフォーマンス最適化
+- 型定義を明確化し安全なデータ処理を実装
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🔧 今後の改善点
+- フォームバリデーション追加
+- 永続ログイン機能の実装
+- テストコード導入
+- 実バックエンドとの連携
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 👤 制作者
+hachi88888
